@@ -15,3 +15,6 @@ VALUES
 SELECT * FROM Student;
 SELECT Name, Marks
 FROM Student;
+SELECT *
+FROM Student
+WHERE Marks > 80;
