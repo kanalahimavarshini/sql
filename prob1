@@ -29,3 +29,5 @@ LIMIT 2;
 UPDATE Student
 SET Marks = 95
 WHERE StudentID = 101;
+DELETE FROM Student
+WHERE StudentID = 103;
