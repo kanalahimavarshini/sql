@@ -7,3 +7,8 @@ CREATE TABLE Student(
     Department VARCHAR(30),
     Marks INT
 );
+INSERT INTO Student
+VALUES
+(101,'Alice',20,'CSE',90),
+(102,'Bob',21,'ECE',85),
+(103,'Charlie',22,'IT',78);
