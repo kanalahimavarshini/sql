@@ -13,3 +13,5 @@ VALUES
 (102,'Bob',21,'ECE',85),
 (103,'Charlie',22,'IT',78);
 SELECT * FROM Student;
+SELECT Name, Marks
+FROM Student;
