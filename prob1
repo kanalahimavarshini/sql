@@ -21,3 +21,5 @@ WHERE Marks > 80;
 SELECT *
 FROM Student
 ORDER BY Marks DESC;
+SELECT DISTINCT Department
+FROM Student;
