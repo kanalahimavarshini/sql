@@ -23,3 +23,6 @@ FROM Student
 ORDER BY Marks DESC;
 SELECT DISTINCT Department
 FROM Student;
+SELECT *
+FROM Student
+LIMIT 2;
