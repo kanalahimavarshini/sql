@@ -26,3 +26,6 @@ FROM Student;
 SELECT *
 FROM Student
 LIMIT 2;
+UPDATE Student
+SET Marks = 95
+WHERE StudentID = 101;
