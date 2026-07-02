@@ -46,3 +46,7 @@ MAX(Marks) AS Highest,
 MIN(Marks) AS Lowest,
 SUM(Marks) AS TotalMarks
 FROM Student;
+SELECT Department,
+AVG(Marks)
+FROM Student
+GROUP BY Department;
