@@ -67,3 +67,7 @@ WHERE Department IN ('CSE','IT');
 SELECT *
 FROM Student
 WHERE Email IS NULL;
+SELECT s.Name,d.DepartmentName
+FROM Student s
+INNER JOIN Department d
+ON s.Department = d.DepartmentID;
