@@ -32,3 +32,4 @@ WHERE StudentID = 101;
 DELETE FROM Student
 WHERE StudentID = 103;
 TRUNCATE TABLE Student;
+DROP TABLE Student;
