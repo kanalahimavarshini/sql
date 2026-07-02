@@ -58,3 +58,6 @@ HAVING COUNT(*) > 1;
 SELECT *
 FROM Student
 WHERE Name LIKE 'A%';
+SELECT *
+FROM Student
+WHERE Marks BETWEEN 80 AND 95;
