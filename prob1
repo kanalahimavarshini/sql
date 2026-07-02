@@ -50,3 +50,8 @@ SELECT Department,
 AVG(Marks)
 FROM Student
 GROUP BY Department;
+SELECT Department,
+COUNT(*)
+FROM Student
+GROUP BY Department
+HAVING COUNT(*) > 1;
