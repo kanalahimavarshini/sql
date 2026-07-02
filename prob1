@@ -55,3 +55,6 @@ COUNT(*)
 FROM Student
 GROUP BY Department
 HAVING COUNT(*) > 1;
+SELECT *
+FROM Student
+WHERE Name LIKE 'A%';
