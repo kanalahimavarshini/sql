@@ -31,3 +31,4 @@ SET Marks = 95
 WHERE StudentID = 101;
 DELETE FROM Student
 WHERE StudentID = 103;
+TRUNCATE TABLE Student;
