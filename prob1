@@ -39,3 +39,10 @@ ALTER TABLE Student
 RENAME COLUMN Name TO StudentName;
 ALTER TABLE Student
 MODIFY Age SMALLINT;
+SELECT
+COUNT(*) AS TotalStudents,
+AVG(Marks) AS AverageMarks,
+MAX(Marks) AS Highest,
+MIN(Marks) AS Lowest,
+SUM(Marks) AS TotalMarks
+FROM Student;
