@@ -33,3 +33,5 @@ DELETE FROM Student
 WHERE StudentID = 103;
 TRUNCATE TABLE Student;
 DROP TABLE Student;
+ALTER TABLE Student
+ADD Email VARCHAR(50);
