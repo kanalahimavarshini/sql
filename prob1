@@ -61,3 +61,6 @@ WHERE Name LIKE 'A%';
 SELECT *
 FROM Student
 WHERE Marks BETWEEN 80 AND 95;
+SELECT *
+FROM Student
+WHERE Department IN ('CSE','IT');
