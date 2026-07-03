@@ -135,3 +135,7 @@ WHEN Marks>=75 THEN 'Good'
 ELSE 'Average'
 END AS Grade
 FROM Student;
+CREATE VIEW TopStudents AS
+SELECT *
+FROM Student
+WHERE Marks>85;
