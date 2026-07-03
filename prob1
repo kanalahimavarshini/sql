@@ -112,3 +112,11 @@ SELECT Marks
 FROM Student
 WHERE Department='IT'
 );
+SELECT *
+FROM Student
+WHERE Marks > ALL
+(
+SELECT Marks
+FROM Student
+WHERE Department='IT'
+);
