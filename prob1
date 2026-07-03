@@ -104,3 +104,11 @@ SELECT *
 FROM Result r
 WHERE s.StudentID=r.StudentID
 );
+SELECT *
+FROM Student
+WHERE Marks > ANY
+(
+SELECT Marks
+FROM Student
+WHERE Department='IT'
+);
