@@ -83,3 +83,6 @@ SELECT s.Name,d.DepartmentName
 FROM Student s
 FULL OUTER JOIN Department d
 ON s.Department=d.DepartmentID;
+SELECT *
+FROM Student
+CROSS JOIN Department;
