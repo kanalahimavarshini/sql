@@ -75,3 +75,7 @@ SELECT s.Name,d.DepartmentName
 FROM Student s
 LEFT JOIN Department d
 ON s.Department=d.DepartmentID;
+SELECT s.Name,d.DepartmentName
+FROM Student s
+RIGHT JOIN Department d
+ON s.Department=d.DepartmentID;
