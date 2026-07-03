@@ -96,3 +96,11 @@ SELECT Name FROM Teacher;
 SELECT Name FROM Student
 UNION ALL
 SELECT Name FROM Teacher;
+SELECT *
+FROM Student s
+WHERE EXISTS
+(
+SELECT *
+FROM Result r
+WHERE s.StudentID=r.StudentID
+);
