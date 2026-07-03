@@ -90,3 +90,6 @@ SELECT A.Name,B.Name
 FROM Employee A
 JOIN Employee B
 ON A.ManagerID=B.EmployeeID;
+SELECT Name FROM Student
+UNION
+SELECT Name FROM Teacher;
