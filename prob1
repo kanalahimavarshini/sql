@@ -127,3 +127,11 @@ WHERE Marks=
 SELECT MAX(Marks)
 FROM Student
 );
+SELECT Name,
+Marks,
+CASE
+WHEN Marks>=90 THEN 'Excellent'
+WHEN Marks>=75 THEN 'Good'
+ELSE 'Average'
+END AS Grade
+FROM Student;
