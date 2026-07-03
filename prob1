@@ -86,3 +86,7 @@ ON s.Department=d.DepartmentID;
 SELECT *
 FROM Student
 CROSS JOIN Department;
+SELECT A.Name,B.Name
+FROM Employee A
+JOIN Employee B
+ON A.ManagerID=B.EmployeeID;
