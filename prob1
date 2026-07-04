@@ -139,3 +139,5 @@ CREATE VIEW TopStudents AS
 SELECT *
 FROM Student
 WHERE Marks>85;
+CREATE INDEX idx_name
+ON Student(Name);
