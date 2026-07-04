@@ -145,3 +145,6 @@ CREATE TABLE Employee(
 EmployeeID INT PRIMARY KEY,
 Email VARCHAR(100) UNIQUE
 );
+CREATE TABLE Employee(
+Age INT CHECK(Age>=18)
+);
