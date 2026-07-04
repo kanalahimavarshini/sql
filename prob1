@@ -158,3 +158,10 @@ StudentID INT,
 FOREIGN KEY(StudentID)
 REFERENCES Student(StudentID)
 );
+START TRANSACTION;
+
+UPDATE Student
+SET Marks=95
+WHERE StudentID=101;
+
+COMMIT;
