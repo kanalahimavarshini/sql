@@ -201,3 +201,8 @@ WHERE Marks>85
 )
 SELECT *
 FROM HighMarks;
+SELECT
+Name,
+Marks,
+ROW_NUMBER() OVER(ORDER BY Marks DESC) RankNo
+FROM Student;
