@@ -193,3 +193,11 @@ BEFORE INSERT
 ON Student
 FOR EACH ROW
 SET NEW.Marks=IFNULL(NEW.Marks,0);
+WITH HighMarks AS
+(
+SELECT *
+FROM Student
+WHERE Marks>85
+)
+SELECT *
+FROM HighMarks;
