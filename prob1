@@ -141,3 +141,7 @@ FROM Student
 WHERE Marks>85;
 CREATE INDEX idx_name
 ON Student(Name);
+CREATE TABLE Employee(
+EmployeeID INT PRIMARY KEY,
+Email VARCHAR(100) UNIQUE
+);
