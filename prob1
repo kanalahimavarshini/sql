@@ -148,3 +148,7 @@ Email VARCHAR(100) UNIQUE
 CREATE TABLE Employee(
 Age INT CHECK(Age>=18)
 );
+CREATE TABLE Employee(
+Country VARCHAR(20)
+DEFAULT 'India'
+);
