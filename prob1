@@ -152,3 +152,9 @@ CREATE TABLE Employee(
 Country VARCHAR(20)
 DEFAULT 'India'
 );
+CREATE TABLE Orders(
+OrderID INT PRIMARY KEY,
+StudentID INT,
+FOREIGN KEY(StudentID)
+REFERENCES Student(StudentID)
+);
