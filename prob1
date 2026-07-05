@@ -226,3 +226,7 @@ Name,
 Marks,
 LAG(Marks) OVER(ORDER BY Marks) PreviousMarks
 FROM Student;
+SELECT
+Name,
+FIRST_VALUE(Marks) OVER(ORDER BY Marks DESC) Highest
+FROM Student;
