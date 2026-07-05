@@ -262,3 +262,11 @@ PIVOT
 AVG(Marks)
 FOR Department IN ([CSE],[ECE],[IT])
 ) p;
+MERGE Target t
+USING Source s
+ON t.ID=s.ID
+WHEN MATCHED THEN
+UPDATE SET t.Name=s.Name
+WHEN NOT MATCHED THEN
+INSERT(ID,Name)
+VALUES(s.ID,s.Name);
