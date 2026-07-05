@@ -221,3 +221,8 @@ Name,
 Marks,
 LEAD(Marks) OVER(ORDER BY Marks) NextMarks
 FROM Student;
+SELECT
+Name,
+Marks,
+LAG(Marks) OVER(ORDER BY Marks) PreviousMarks
+FROM Student;
