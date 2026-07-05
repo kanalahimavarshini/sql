@@ -251,3 +251,14 @@ FROM Numbers
 WHERE num<10
 )
 SELECT * FROM Numbers;
+SELECT *
+FROM
+(
+SELECT Department,Marks
+FROM Student
+) s
+PIVOT
+(
+AVG(Marks)
+FOR Department IN ([CSE],[ECE],[IT])
+) p;
