@@ -285,3 +285,14 @@ FROM
     FROM Student
 ) AS RankedStudents
 WHERE RankNo = 1;
+DELETE FROM Student
+WHERE StudentID NOT IN
+(
+    SELECT MinID
+    FROM
+    (
+        SELECT MIN(StudentID) AS MinID
+        FROM Student
+        GROUP BY Name, Department
+    ) AS Temp
+);
