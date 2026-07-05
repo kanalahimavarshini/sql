@@ -211,3 +211,8 @@ Name,
 Marks,
 RANK() OVER(ORDER BY Marks DESC) RankNo
 FROM Student;
+SELECT
+Name,
+Marks,
+DENSE_RANK() OVER(ORDER BY Marks DESC) RankNo
+FROM Student;
