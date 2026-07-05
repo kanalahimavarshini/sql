@@ -206,3 +206,8 @@ Name,
 Marks,
 ROW_NUMBER() OVER(ORDER BY Marks DESC) RankNo
 FROM Student;
+SELECT
+Name,
+Marks,
+RANK() OVER(ORDER BY Marks DESC) RankNo
+FROM Student;
