@@ -270,3 +270,18 @@ UPDATE SET t.Name=s.Name
 WHEN NOT MATCHED THEN
 INSERT(ID,Name)
 VALUES(s.ID,s.Name);
+SELECT *
+FROM
+(
+    SELECT
+        StudentID,
+        Name,
+        Department,
+        Marks,
+        ROW_NUMBER() OVER (
+            PARTITION BY Department
+            ORDER BY Marks DESC
+        ) AS RankNo
+    FROM Student
+) AS RankedStudents
+WHERE RankNo = 1;
