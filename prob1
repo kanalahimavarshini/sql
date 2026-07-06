@@ -324,3 +324,8 @@ SELECT
     Salary,
     SUM(Salary) OVER(ORDER BY EmployeeID) AS RunningTotal
 FROM Employee;
+SELECT
+    DepartmentID,
+    AVG(Salary) AS AverageSalary
+FROM Employee
+GROUP BY DepartmentID;
