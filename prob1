@@ -318,3 +318,9 @@ SELECT *
 FROM Employee
 ORDER BY Salary DESC
 LIMIT 5;
+SELECT
+    EmployeeID,
+    Name,
+    Salary,
+    SUM(Salary) OVER(ORDER BY EmployeeID) AS RunningTotal
+FROM Employee;
