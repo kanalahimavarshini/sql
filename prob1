@@ -329,3 +329,14 @@ SELECT
     AVG(Salary) AS AverageSalary
 FROM Employee
 GROUP BY DepartmentID;
+SELECT e.EmployeeID,
+       e.Name,
+       e.Salary,
+       e.DepartmentID
+FROM Employee e
+WHERE Salary >
+(
+    SELECT AVG(Salary)
+    FROM Employee
+    WHERE DepartmentID = e.DepartmentID
+);
