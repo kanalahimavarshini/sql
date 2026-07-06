@@ -296,3 +296,10 @@ WHERE StudentID NOT IN
         GROUP BY Name, Department
     ) AS Temp
 );
+SELECT MAX(Salary) AS SecondHighestSalary
+FROM Employee
+WHERE Salary <
+(
+    SELECT MAX(Salary)
+    FROM Employee
+);
