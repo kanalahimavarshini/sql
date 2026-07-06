@@ -348,3 +348,4 @@ GROUP BY DepartmentID;
 SELECT *
 FROM Employee
 WHERE YEAR(JoiningDate) = YEAR(CURDATE());
+SELECT NOW() AS CurrentDateTime;
