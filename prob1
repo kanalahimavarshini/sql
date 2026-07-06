@@ -345,3 +345,6 @@ SELECT
     COUNT(*) AS EmployeeCount
 FROM Employee
 GROUP BY DepartmentID;
+SELECT *
+FROM Employee
+WHERE YEAR(JoiningDate) = YEAR(CURDATE());
