@@ -308,3 +308,9 @@ SELECT Name,
 FROM Employee
 GROUP BY Name
 HAVING COUNT(*) > 1;
+SELECT e.EmployeeID,
+       e.Name
+FROM Employee e
+LEFT JOIN Department d
+ON e.DepartmentID = d.DepartmentID
+WHERE d.DepartmentID IS NULL;
