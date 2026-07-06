@@ -303,3 +303,8 @@ WHERE Salary <
     SELECT MAX(Salary)
     FROM Employee
 );
+SELECT Name,
+       COUNT(*) AS Total
+FROM Employee
+GROUP BY Name
+HAVING COUNT(*) > 1;
