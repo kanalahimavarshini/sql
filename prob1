@@ -374,3 +374,7 @@ SELECT Salary,
 FROM Employee
 GROUP BY Salary
 HAVING COUNT(*) > 1;
+SELECT EmployeeID,
+       Name,
+       TIMESTAMPDIFF(YEAR, JoiningDate, CURDATE()) AS Experience
+FROM Employee;
