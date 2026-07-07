@@ -400,3 +400,6 @@ SELECT EmployeeID,
        COUNT(OrderID) AS TotalOrders
 FROM Orders
 GROUP BY EmployeeID;
+SELECT
+    MAX(Salary) - MIN(Salary) AS SalaryDifference
+FROM Employee;
