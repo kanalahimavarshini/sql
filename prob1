@@ -388,3 +388,5 @@ LIMIT 5;
 UPDATE Employee
 SET Salary = Salary * 1.10
 WHERE DepartmentID = 1;
+DELETE FROM Employee
+WHERE Salary IS NULL;sss
