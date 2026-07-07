@@ -381,3 +381,7 @@ FROM Employee;
 SELECT *
 FROM Employee
 WHERE Name LIKE 'A%n';
+SELECT *
+FROM Employee
+ORDER BY JoiningDate DESC
+LIMIT 5;
