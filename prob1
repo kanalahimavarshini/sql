@@ -378,3 +378,6 @@ SELECT EmployeeID,
        Name,
        TIMESTAMPDIFF(YEAR, JoiningDate, CURDATE()) AS Experience
 FROM Employee;
+SELECT *
+FROM Employee
+WHERE Name LIKE 'A%n';
