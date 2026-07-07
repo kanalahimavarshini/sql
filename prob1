@@ -385,3 +385,6 @@ SELECT *
 FROM Employee
 ORDER BY JoiningDate DESC
 LIMIT 5;
+UPDATE Employee
+SET Salary = Salary * 1.10
+WHERE DepartmentID = 1;
