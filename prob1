@@ -403,3 +403,12 @@ GROUP BY EmployeeID;
 SELECT
     MAX(Salary) - MIN(Salary) AS SalaryDifference
 FROM Employee;
+SELECT
+    EmployeeID,
+    Name,
+    DepartmentID,
+    ROW_NUMBER() OVER (
+        PARTITION BY DepartmentID
+        ORDER BY Salary DESC
+    ) AS DepartmentRank
+FROM Employee;
