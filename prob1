@@ -390,3 +390,9 @@ SET Salary = Salary * 1.10
 WHERE DepartmentID = 1;
 DELETE FROM Employee
 WHERE Salary IS NULL;sss
+SELECT e.EmployeeID,
+       e.Name
+FROM Employee e
+LEFT JOIN Orders o
+ON e.EmployeeID = o.EmployeeID
+WHERE o.OrderID IS NULL;
