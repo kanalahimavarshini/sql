@@ -396,3 +396,7 @@ FROM Employee e
 LEFT JOIN Orders o
 ON e.EmployeeID = o.EmployeeID
 WHERE o.OrderID IS NULL;
+SELECT EmployeeID,
+       COUNT(OrderID) AS TotalOrders
+FROM Orders
+GROUP BY EmployeeID;
