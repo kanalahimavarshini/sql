@@ -358,3 +358,14 @@ SELECT DISTINCT Salary
 FROM Employee
 ORDER BY Salary DESC
 LIMIT 1 OFFSET 2;
+SELECT e.*
+FROM Employee e
+JOIN
+(
+    SELECT DepartmentID,
+           MAX(Salary) AS MaxSalary
+    FROM Employee
+    GROUP BY DepartmentID
+) d
+ON e.DepartmentID = d.DepartmentID
+AND e.Salary = d.MaxSalary;
