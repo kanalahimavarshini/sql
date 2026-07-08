@@ -451,3 +451,20 @@ SELECT
     AnnualSalary,
     ROUND(AnnualSalary / 12, 2) AS MonthlySalary
 FROM Employee;
+SELECT EmployeeID,
+       Name,
+       Salary,
+       DepartmentID
+FROM Employee e
+WHERE Salary BETWEEN
+(
+    SELECT AVG(Salary)
+    FROM Employee
+    WHERE DepartmentID = e.DepartmentID
+)
+AND
+(
+    SELECT MAX(Salary)
+    FROM Employee
+    WHERE DepartmentID = e.DepartmentID
+);
