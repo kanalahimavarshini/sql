@@ -445,3 +445,9 @@ SELECT
     Name,
     COALESCE(PhoneNumber, 'Not Available') AS Phone
 FROM Employee;
+SELECT
+    EmployeeID,
+    Name,
+    AnnualSalary,
+    ROUND(AnnualSalary / 12, 2) AS MonthlySalary
+FROM Employee;
