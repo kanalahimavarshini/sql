@@ -440,3 +440,8 @@ SELECT DISTINCT Salary
 FROM Employee
 ORDER BY Salary DESC
 LIMIT 3;
+SELECT
+    EmployeeID,
+    Name,
+    COALESCE(PhoneNumber, 'Not Available') AS Phone
+FROM Employee;
