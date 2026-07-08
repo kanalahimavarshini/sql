@@ -426,3 +426,6 @@ SELECT DepartmentID,
 FROM Employee
 GROUP BY DepartmentID
 HAVING COUNT(*) > 5;
+SELECT *
+FROM Employee
+WHERE JoiningDate >= DATE_SUB(CURDATE(), INTERVAL 30 DAY);
