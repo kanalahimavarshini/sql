@@ -468,3 +468,8 @@ AND
     FROM Employee
     WHERE DepartmentID = e.DepartmentID
 );
+SELECT
+    SUM(CASE WHEN DepartmentID = 1 THEN Salary ELSE 0 END) AS CSE,
+    SUM(CASE WHEN DepartmentID = 2 THEN Salary ELSE 0 END) AS ECE,
+    SUM(CASE WHEN DepartmentID = 3 THEN Salary ELSE 0 END) AS IT
+FROM Employee;
