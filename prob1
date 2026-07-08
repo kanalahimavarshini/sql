@@ -429,3 +429,10 @@ HAVING COUNT(*) > 5;
 SELECT *
 FROM Employee
 WHERE JoiningDate >= DATE_SUB(CURDATE(), INTERVAL 30 DAY);
+SELECT
+    EmployeeID,
+    Name,
+    DepartmentID,
+    Salary,
+    SUM(Salary) OVER(PARTITION BY DepartmentID) AS DepartmentTotalSalary
+FROM Employee;
