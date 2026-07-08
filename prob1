@@ -480,3 +480,13 @@ WHERE LENGTH(Name) =
     SELECT MAX(LENGTH(Name))
     FROM Employee
 );
+WITH RECURSIVE Numbers AS
+(
+    SELECT 1 AS Num
+    UNION ALL
+    SELECT Num + 1
+    FROM Numbers
+    WHERE Num < 20
+)
+SELECT *
+FROM Numbers;
