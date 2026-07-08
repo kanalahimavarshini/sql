@@ -436,3 +436,7 @@ SELECT
     Salary,
     SUM(Salary) OVER(PARTITION BY DepartmentID) AS DepartmentTotalSalary
 FROM Employee;
+SELECT DISTINCT Salary
+FROM Employee
+ORDER BY Salary DESC
+LIMIT 3;
