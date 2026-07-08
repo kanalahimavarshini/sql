@@ -473,3 +473,10 @@ SELECT
     SUM(CASE WHEN DepartmentID = 2 THEN Salary ELSE 0 END) AS ECE,
     SUM(CASE WHEN DepartmentID = 3 THEN Salary ELSE 0 END) AS IT
 FROM Employee;
+SELECT *
+FROM Employee
+WHERE LENGTH(Name) =
+(
+    SELECT MAX(LENGTH(Name))
+    FROM Employee
+);
