@@ -412,3 +412,12 @@ SELECT
         ORDER BY Salary DESC
     ) AS DepartmentRank
 FROM Employee;
+SELECT EmployeeID,
+       Name,
+       Salary
+FROM Employee
+WHERE Salary >
+(
+    SELECT AVG(Salary)
+    FROM Employee
+);
