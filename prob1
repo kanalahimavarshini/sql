@@ -421,3 +421,8 @@ WHERE Salary >
     SELECT AVG(Salary)
     FROM Employee
 );
+SELECT DepartmentID,
+       COUNT(*) AS EmployeeCount
+FROM Employee
+GROUP BY DepartmentID
+HAVING COUNT(*) > 5;
