@@ -520,3 +520,9 @@ SELECT Gender,
        COUNT(*) AS TotalEmployees
 FROM Employee
 GROUP BY Gender;
+SELECT e.EmployeeID,
+       e.Name
+FROM Employee e
+LEFT JOIN LoginHistory l
+ON e.EmployeeID = l.EmployeeID
+WHERE l.EmployeeID IS NULL;
