@@ -558,3 +558,8 @@ FROM
     LIMIT 2 - (SELECT COUNT(*) FROM Employee) % 2
     OFFSET (SELECT (COUNT(*) - 1) / 2 FROM Employee)
 ) t;
+SELECT DepartmentID,
+       MAX(Salary) AS HighestSalary,
+       MIN(Salary) AS LowestSalary
+FROM Employee
+GROUP BY DepartmentID;
