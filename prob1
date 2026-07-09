@@ -539,3 +539,13 @@ SELECT EmployeeID,
            2
        ) AS PayrollPercentage
 FROM Employee;
+SELECT ID,
+       Value
+FROM
+(
+    SELECT ID,
+           Value,
+           LAG(Value) OVER(ORDER BY ID) AS PreviousValue
+    FROM Logs
+) t
+WHERE Value = PreviousValue;
