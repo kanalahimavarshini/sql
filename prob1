@@ -563,3 +563,19 @@ SELECT DepartmentID,
        MIN(Salary) AS LowestSalary
 FROM Employee
 GROUP BY DepartmentID;
+WITH DuplicateRows AS
+(
+    SELECT *,
+           ROW_NUMBER() OVER(
+               PARTITION BY Name, DepartmentID
+               ORDER BY EmployeeID
+           ) AS RN
+    FROM Employee
+)
+DELETE FROM Employee
+WHERE EmployeeID IN
+(
+    SELECT EmployeeID
+    FROM DuplicateRows
+    WHERE RN > 1
+);
