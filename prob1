@@ -510,3 +510,9 @@ JOIN
 ) d
 ON e.DepartmentID = d.DepartmentID
 AND e.Salary = d.MinSalary;
+SELECT EmployeeID,
+       Name,
+       JoiningDate
+FROM Employee
+ORDER BY JoiningDate DESC
+LIMIT 5;
