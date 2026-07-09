@@ -526,3 +526,8 @@ FROM Employee e
 LEFT JOIN LoginHistory l
 ON e.EmployeeID = l.EmployeeID
 WHERE l.EmployeeID IS NULL;
+SELECT EmployeeID,
+       COUNT(OrderID) AS TotalOrders
+FROM Orders
+GROUP BY EmployeeID
+HAVING COUNT(OrderID) > 10;
