@@ -531,3 +531,11 @@ SELECT EmployeeID,
 FROM Orders
 GROUP BY EmployeeID
 HAVING COUNT(OrderID) > 10;
+SELECT EmployeeID,
+       Name,
+       Salary,
+       ROUND(
+           Salary * 100.0 / SUM(Salary) OVER(),
+           2
+       ) AS PayrollPercentage
+FROM Employee;
