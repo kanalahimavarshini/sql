@@ -549,3 +549,12 @@ FROM
     FROM Logs
 ) t
 WHERE Value = PreviousValue;
+SELECT AVG(Salary) AS MedianSalary
+FROM
+(
+    SELECT Salary
+    FROM Employee
+    ORDER BY Salary
+    LIMIT 2 - (SELECT COUNT(*) FROM Employee) % 2
+    OFFSET (SELECT (COUNT(*) - 1) / 2 FROM Employee)
+) t;
