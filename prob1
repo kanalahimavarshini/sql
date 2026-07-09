@@ -516,3 +516,7 @@ SELECT EmployeeID,
 FROM Employee
 ORDER BY JoiningDate DESC
 LIMIT 5;
+SELECT Gender,
+       COUNT(*) AS TotalEmployees
+FROM Employee
+GROUP BY Gender;
