@@ -579,3 +579,8 @@ WHERE EmployeeID IN
     FROM DuplicateRows
     WHERE RN > 1
 );
+SELECT EmployeeID,
+       Name,
+       BirthDate
+FROM Employee
+WHERE MONTH(BirthDate) = MONTH(CURDATE());
