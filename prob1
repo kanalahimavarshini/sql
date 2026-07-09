@@ -584,3 +584,12 @@ SELECT EmployeeID,
        BirthDate
 FROM Employee
 WHERE MONTH(BirthDate) = MONTH(CURDATE());
+SELECT EmployeeID,
+       Name,
+       Salary,
+       AVG(Salary) OVER(
+           ORDER BY EmployeeID
+           ROWS BETWEEN UNBOUNDED PRECEDING
+           AND CURRENT ROW
+       ) AS RunningAverage
+FROM Employee;
