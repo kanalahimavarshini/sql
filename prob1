@@ -696,3 +696,9 @@ FROM
 ) AS RankedEmployees
 WHERE SalaryRank <= 3
 ORDER BY DepartmentID, Salary DESC;
+SELECT
+    SUM(CASE WHEN DepartmentID = 1 THEN 1 ELSE 0 END) AS CSE_Count,
+    SUM(CASE WHEN DepartmentID = 2 THEN 1 ELSE 0 END) AS ECE_Count,
+    SUM(CASE WHEN DepartmentID = 3 THEN 1 ELSE 0 END) AS IT_Count,
+    SUM(CASE WHEN DepartmentID = 4 THEN 1 ELSE 0 END) AS MECH_Count
+FROM Employee;
