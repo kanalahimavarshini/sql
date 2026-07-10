@@ -624,3 +624,8 @@ SELECT e.EmployeeID,
 FROM Employee e
 INNER JOIN Department d
 ON e.DepartmentID = d.DepartmentID;
+SELECT YEAR(JoiningDate) AS HireYear,
+       COUNT(*) AS TotalEmployees
+FROM Employee
+GROUP BY YEAR(JoiningDate)
+ORDER BY HireYear;
