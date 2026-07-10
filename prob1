@@ -664,3 +664,8 @@ SELECT EmployeeID,
        Salary,
        LAG(Salary) OVER(ORDER BY EmployeeID) AS PreviousSalary
 FROM Employee;
+SELECT EmployeeID,
+       Name,
+       Salary,
+       LEAD(Salary) OVER(ORDER BY EmployeeID) AS NextSalary
+FROM Employee;
