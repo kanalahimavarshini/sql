@@ -605,3 +605,9 @@ FROM Department d
 LEFT JOIN Employee e
 ON d.DepartmentID = e.DepartmentID
 WHERE e.EmployeeID IS NULL;
+SELECT EmployeeID,
+       Name,
+       DepartmentID,
+       Salary,
+       Salary - AVG(Salary) OVER(PARTITION BY DepartmentID) AS Difference
+FROM Employee;
