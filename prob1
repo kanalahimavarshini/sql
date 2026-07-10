@@ -659,3 +659,8 @@ SELECT EmployeeID,
            ORDER BY Salary DESC
        ) AS SalaryRank
 FROM Employee;
+SELECT EmployeeID,
+       Name,
+       Salary,
+       LAG(Salary) OVER(ORDER BY EmployeeID) AS PreviousSalary
+FROM Employee;
