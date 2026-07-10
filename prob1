@@ -593,3 +593,9 @@ SELECT EmployeeID,
            AND CURRENT ROW
        ) AS RunningAverage
 FROM Employee;
+SELECT EmployeeID,
+       Name,
+       Salary
+FROM Employee
+ORDER BY Salary DESC
+LIMIT 1;
