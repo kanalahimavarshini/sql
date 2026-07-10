@@ -611,3 +611,10 @@ SELECT EmployeeID,
        Salary,
        Salary - AVG(Salary) OVER(PARTITION BY DepartmentID) AS Difference
 FROM Employee;
+SELECT e1.Name AS Employee1,
+       e2.Name AS Employee2,
+       e1.ManagerID
+FROM Employee e1
+JOIN Employee e2
+ON e1.ManagerID = e2.ManagerID
+AND e1.EmployeeID < e2.EmployeeID;
