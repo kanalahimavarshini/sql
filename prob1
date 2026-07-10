@@ -618,3 +618,9 @@ FROM Employee e1
 JOIN Employee e2
 ON e1.ManagerID = e2.ManagerID
 AND e1.EmployeeID < e2.EmployeeID;
+SELECT e.EmployeeID,
+       e.Name,
+       d.DepartmentName
+FROM Employee e
+INNER JOIN Department d
+ON e.DepartmentID = d.DepartmentID;
