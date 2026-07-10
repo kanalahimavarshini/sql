@@ -599,3 +599,9 @@ SELECT EmployeeID,
 FROM Employee
 ORDER BY Salary DESC
 LIMIT 1;
+SELECT d.DepartmentID,
+       d.DepartmentName
+FROM Department d
+LEFT JOIN Employee e
+ON d.DepartmentID = e.DepartmentID
+WHERE e.EmployeeID IS NULL;
