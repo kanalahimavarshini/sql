@@ -669,3 +669,12 @@ SELECT EmployeeID,
        Salary,
        LEAD(Salary) OVER(ORDER BY EmployeeID) AS NextSalary
 FROM Employee;
+SELECT EmployeeID,
+       Name,
+       Salary
+FROM Employee
+WHERE Salary >
+(
+    SELECT AVG(Salary)
+    FROM Employee
+);
