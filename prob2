@@ -30,3 +30,5 @@ WHERE EmployeeID % 2 = 0;
 SELECT *
 FROM Employee
 WHERE EmployeeID % 2 <> 0;
+SELECT COUNT(DISTINCT DepartmentID) AS TotalDepartments
+FROM Employee;
