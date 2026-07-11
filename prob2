@@ -39,3 +39,6 @@ SELECT EmployeeID,
            '.'
        ) AS Initial
 FROM Employee;
+SELECT *
+FROM Employee
+WHERE Name LIKE '%RA%';
