@@ -32,3 +32,10 @@ FROM Employee
 WHERE EmployeeID % 2 <> 0;
 SELECT COUNT(DISTINCT DepartmentID) AS TotalDepartments
 FROM Employee;
+SELECT EmployeeID,
+       Name,
+       CONCAT(
+           LEFT(Name,1),
+           '.'
+       ) AS Initial
+FROM Employee;
