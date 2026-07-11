@@ -45,3 +45,6 @@ WHERE Name LIKE '%RA%';
 SELECT *
 FROM Employee
 WHERE JoiningDate < '2020-01-01';
+SELECT *
+FROM Employee
+WHERE Salary % 1000 = 0;
