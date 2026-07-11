@@ -48,3 +48,8 @@ WHERE JoiningDate < '2020-01-01';
 SELECT *
 FROM Employee
 WHERE Salary % 1000 = 0;
+SELECT YEAR(JoiningDate) AS Year,
+       SUM(Salary) AS TotalSalary
+FROM Employee
+GROUP BY YEAR(JoiningDate)
+ORDER BY Year;
