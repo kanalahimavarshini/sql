@@ -15,3 +15,12 @@ FROM
     FROM Employee
 ) t
 WHERE RankNo = 3;
+SELECT EmployeeID,
+       Name,
+       DepartmentID,
+       Salary,
+       SUM(Salary) OVER(
+           PARTITION BY DepartmentID
+           ORDER BY EmployeeID
+       ) AS CumulativeSalary
+FROM Employee;
