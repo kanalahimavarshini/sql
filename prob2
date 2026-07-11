@@ -1,0 +1,5 @@
+SELECT JoiningDate,
+       COUNT(*) AS TotalEmployees
+FROM Employee
+GROUP BY JoiningDate
+HAVING COUNT(*) > 1;
