@@ -27,3 +27,6 @@ FROM Employee;
 SELECT *
 FROM Employee
 WHERE EmployeeID % 2 = 0;
+SELECT *
+FROM Employee
+WHERE EmployeeID % 2 <> 0;
