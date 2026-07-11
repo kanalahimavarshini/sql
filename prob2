@@ -24,3 +24,6 @@ SELECT EmployeeID,
            ORDER BY EmployeeID
        ) AS CumulativeSalary
 FROM Employee;
+SELECT *
+FROM Employee
+WHERE EmployeeID % 2 = 0;
