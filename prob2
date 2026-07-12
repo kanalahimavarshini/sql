@@ -96,3 +96,8 @@ WHERE Salary = (
     FROM Employee
     WHERE DepartmentID = e.DepartmentID
 );
+SELECT CustomerID,
+       COUNT(OrderID) AS TotalOrders,
+       SUM(OrderAmount) AS TotalAmount
+FROM Orders
+GROUP BY CustomerID;
