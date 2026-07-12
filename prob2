@@ -125,3 +125,8 @@ FROM OrderDetails
 GROUP BY ProductID
 ORDER BY TotalSold DESC
 LIMIT 1;
+SELECT ProductID,
+       SUM(Quantity * UnitPrice) AS Revenue
+FROM OrderDetails
+GROUP BY ProductID
+ORDER BY Revenue DESC;
