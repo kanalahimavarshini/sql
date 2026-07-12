@@ -80,3 +80,9 @@ FROM Employee;
 SELECT EmployeeID,
        LOWER(Name) AS EmployeeName
 FROM Employee;
+SELECT DepartmentID,
+       Gender,
+       COUNT(*) AS TotalEmployees
+FROM Employee
+GROUP BY DepartmentID, Gender
+ORDER BY DepartmentID;
