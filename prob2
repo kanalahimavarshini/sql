@@ -107,3 +107,9 @@ FROM Customers c
 LEFT JOIN Orders o
 ON c.CustomerID = o.CustomerID
 WHERE o.OrderID IS NULL;
+SELECT CustomerID,
+       SUM(OrderAmount) AS TotalSpent
+FROM Orders
+GROUP BY CustomerID
+ORDER BY TotalSpent DESC
+LIMIT 5;
