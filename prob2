@@ -77,3 +77,6 @@ WHERE Salary < (
 SELECT EmployeeID,
        UPPER(Name) AS EmployeeName
 FROM Employee;
+SELECT EmployeeID,
+       LOWER(Name) AS EmployeeName
+FROM Employee;
