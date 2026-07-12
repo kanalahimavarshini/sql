@@ -86,3 +86,13 @@ SELECT DepartmentID,
 FROM Employee
 GROUP BY DepartmentID, Gender
 ORDER BY DepartmentID;
+SELECT EmployeeID,
+       Name,
+       DepartmentID,
+       Salary
+FROM Employee e
+WHERE Salary = (
+    SELECT AVG(Salary)
+    FROM Employee
+    WHERE DepartmentID = e.DepartmentID
+);
