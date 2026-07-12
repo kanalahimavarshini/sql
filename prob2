@@ -74,3 +74,6 @@ WHERE Salary < (
     SELECT AVG(Salary)
     FROM Employee
 );
+SELECT EmployeeID,
+       UPPER(Name) AS EmployeeName
+FROM Employee;
