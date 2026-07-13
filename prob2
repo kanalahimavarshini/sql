@@ -161,3 +161,15 @@ FROM Orders
 GROUP BY CustomerID
 ORDER BY TotalOrders DESC
 LIMIT 1;
+SELECT EmployeeID,
+       Name,
+       Salary
+FROM
+(
+    SELECT EmployeeID,
+           Name,
+           Salary,
+           NTILE(10) OVER(ORDER BY Salary DESC) AS SalaryGroup
+    FROM Employee
+) t
+WHERE SalaryGroup = 1;
