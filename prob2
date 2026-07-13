@@ -173,3 +173,7 @@ FROM
     FROM Employee
 ) t
 WHERE SalaryGroup = 1;
+SELECT CustomerID,
+       AVG(OrderAmount) AS AverageOrderValue
+FROM Orders
+GROUP BY CustomerID;
