@@ -141,3 +141,12 @@ SELECT ProductID,
 FROM Products
 ORDER BY Price DESC
 LIMIT 1;
+SELECT ProductID,
+       ProductName,
+       Price
+FROM Products
+WHERE Price >
+(
+    SELECT AVG(Price)
+    FROM Products
+);
