@@ -194,3 +194,7 @@ SELECT EmployeeID,
        JoiningDate
 FROM Employee
 WHERE DAYNAME(JoiningDate) = 'Monday';
+SELECT EmployeeID,
+       Name,
+       DATEDIFF(CURDATE(), JoiningDate) AS DaysWorked
+FROM Employee;
