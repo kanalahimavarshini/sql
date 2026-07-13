@@ -155,3 +155,9 @@ SELECT MONTH(OrderDate) AS OrderMonth,
 FROM Orders
 GROUP BY MONTH(OrderDate)
 ORDER BY OrderMonth;
+SELECT CustomerID,
+       COUNT(*) AS TotalOrders
+FROM Orders
+GROUP BY CustomerID
+ORDER BY TotalOrders DESC
+LIMIT 1;
