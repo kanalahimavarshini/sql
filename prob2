@@ -130,3 +130,8 @@ SELECT ProductID,
 FROM OrderDetails
 GROUP BY ProductID
 ORDER BY Revenue DESC;
+SELECT CustomerID,
+       SUM(OrderAmount) AS TotalSpent
+FROM Orders
+GROUP BY CustomerID
+HAVING SUM(OrderAmount) > 50000;
