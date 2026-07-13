@@ -150,3 +150,8 @@ WHERE Price >
     SELECT AVG(Price)
     FROM Products
 );
+SELECT MONTH(OrderDate) AS OrderMonth,
+       COUNT(*) AS TotalOrders
+FROM Orders
+GROUP BY MONTH(OrderDate)
+ORDER BY OrderMonth;
