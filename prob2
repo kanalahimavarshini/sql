@@ -135,3 +135,9 @@ SELECT CustomerID,
 FROM Orders
 GROUP BY CustomerID
 HAVING SUM(OrderAmount) > 50000;
+SELECT ProductID,
+       ProductName,
+       Price
+FROM Products
+ORDER BY Price DESC
+LIMIT 1;
