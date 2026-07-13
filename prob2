@@ -177,3 +177,8 @@ SELECT CustomerID,
        AVG(OrderAmount) AS AverageOrderValue
 FROM Orders
 GROUP BY CustomerID;
+SELECT ProductID,
+       SUM(Quantity) AS TotalQuantity
+FROM OrderDetails
+GROUP BY ProductID
+HAVING SUM(Quantity) > 100;
