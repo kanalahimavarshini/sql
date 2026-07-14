@@ -213,3 +213,10 @@ ON e1.DepartmentID = e2.DepartmentID
 AND e1.Salary = e2.Salary
 AND e1.EmployeeID <> e2.EmployeeID
 ORDER BY e1.DepartmentID;
+SELECT MIN(Salary) AS SecondLowestSalary
+FROM Employee
+WHERE Salary >
+(
+    SELECT MIN(Salary)
+    FROM Employee
+);
