@@ -260,3 +260,10 @@ SELECT EmployeeID,
            ELSE 'Low'
        END AS SalaryCategory
 FROM Employee;
+SELECT EmployeeID,
+       Name,
+       JoiningDate,
+       DATEDIFF(CURDATE(), JoiningDate) AS TotalDays
+FROM Employee
+ORDER BY TotalDays DESC
+LIMIT 1;
