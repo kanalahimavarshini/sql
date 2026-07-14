@@ -220,3 +220,13 @@ WHERE Salary >
     SELECT MIN(Salary)
     FROM Employee
 );
+SELECT EmployeeID,
+       Name,
+       Salary,
+       LAG(Salary) OVER(ORDER BY EmployeeID) AS PreviousSalary,
+       ROUND(
+           ((Salary - LAG(Salary) OVER(ORDER BY EmployeeID))
+           / LAG(Salary) OVER(ORDER BY EmployeeID)) * 100,
+           2
+       ) AS PercentageIncrease
+FROM Employee;
