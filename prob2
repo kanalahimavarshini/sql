@@ -267,3 +267,8 @@ SELECT EmployeeID,
 FROM Employee
 ORDER BY TotalDays DESC
 LIMIT 1;
+SELECT EmployeeID,
+       Name,
+       DepartmentID
+FROM Employee
+ORDER BY DepartmentID, Name;
