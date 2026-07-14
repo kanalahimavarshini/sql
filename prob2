@@ -246,3 +246,8 @@ FROM Employee
 GROUP BY DepartmentID
 ORDER BY TotalSalary DESC
 LIMIT 1;
+SELECT Email,
+       COUNT(*) AS TotalEmployees
+FROM Employee
+GROUP BY Email
+HAVING COUNT(*) > 1;
