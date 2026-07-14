@@ -272,3 +272,9 @@ SELECT EmployeeID,
        DepartmentID
 FROM Employee
 ORDER BY DepartmentID, Name;
+SELECT YEAR(OrderDate) AS Year,
+       MONTH(OrderDate) AS Month,
+       SUM(OrderAmount) AS Revenue
+FROM Orders
+GROUP BY YEAR(OrderDate), MONTH(OrderDate)
+ORDER BY Year, Month;
