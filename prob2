@@ -251,3 +251,12 @@ SELECT Email,
 FROM Employee
 GROUP BY Email
 HAVING COUNT(*) > 1;
+SELECT EmployeeID,
+       Name,
+       Salary,
+       CASE
+           WHEN Salary >= 100000 THEN 'High'
+           WHEN Salary >= 50000 THEN 'Medium'
+           ELSE 'Low'
+       END AS SalaryCategory
+FROM Employee;
