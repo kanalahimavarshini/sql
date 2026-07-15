@@ -317,3 +317,8 @@ WHERE Salary <
     SELECT MAX(Salary)
     FROM Employee
 );
+SELECT EmployeeID,
+       Name,
+       BirthDate,
+       TIMESTAMPDIFF(YEAR, BirthDate, CURDATE()) AS Age
+FROM Employee;
