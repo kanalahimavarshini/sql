@@ -350,3 +350,7 @@ SELECT YEAR(OrderDate) AS Year,
 FROM Orders
 GROUP BY YEAR(OrderDate), MONTH(OrderDate)
 ORDER BY Year, Month;
+SELECT EmployeeID,
+       Name
+FROM Employee
+WHERE ManagerID IS NULL;
