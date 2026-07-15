@@ -339,3 +339,8 @@ FROM OrderDetails
 GROUP BY ProductID
 ORDER BY OrderCount DESC
 LIMIT 1;
+SELECT CustomerID,
+       COUNT(DISTINCT ProductID) AS ProductCount
+FROM OrderDetails
+GROUP BY CustomerID
+HAVING COUNT(DISTINCT ProductID) > 1;
