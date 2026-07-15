@@ -333,3 +333,9 @@ SELECT MONTH(JoiningDate) AS Month,
 FROM Employee
 GROUP BY MONTH(JoiningDate)
 ORDER BY Month;
+SELECT ProductID,
+       COUNT(*) AS OrderCount
+FROM OrderDetails
+GROUP BY ProductID
+ORDER BY OrderCount DESC
+LIMIT 1;
