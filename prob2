@@ -354,3 +354,9 @@ SELECT EmployeeID,
        Name
 FROM Employee
 WHERE ManagerID IS NULL;
+SELECT DepartmentID,
+       AVG(Salary) AS AverageSalary
+FROM Employee
+GROUP BY DepartmentID
+ORDER BY AverageSalary DESC
+LIMIT 1;
