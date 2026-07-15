@@ -371,3 +371,22 @@ WHERE e.Salary >
     FROM Employee e2
     WHERE e2.DepartmentID <> e.DepartmentID
 );
+WITH SalaryChanges AS
+(
+    SELECT
+        EmployeeID,
+        Name,
+        Salary,
+        Salary - LAG(Salary) OVER(ORDER BY EmployeeID) AS SalaryIncrease
+    FROM Employee
+)
+SELECT EmployeeID,
+       Name,
+       Salary,
+       SalaryIncrease
+FROM SalaryChanges
+WHERE SalaryIncrease =
+(
+    SELECT MAX(SalaryIncrease)
+    FROM SalaryChanges
+);
