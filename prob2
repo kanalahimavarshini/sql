@@ -328,3 +328,8 @@ SELECT EmployeeID,
 FROM Employee
 WHERE MONTH(BirthDate) = MONTH(CURDATE())
 AND DAY(BirthDate) = DAY(CURDATE());
+SELECT MONTH(JoiningDate) AS Month,
+       COUNT(*) AS TotalEmployees
+FROM Employee
+GROUP BY MONTH(JoiningDate)
+ORDER BY Month;
