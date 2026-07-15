@@ -360,3 +360,14 @@ FROM Employee
 GROUP BY DepartmentID
 ORDER BY AverageSalary DESC
 LIMIT 1;
+SELECT e.EmployeeID,
+       e.Name,
+       e.DepartmentID,
+       e.Salary
+FROM Employee e
+WHERE e.Salary >
+(
+    SELECT MAX(e2.Salary)
+    FROM Employee e2
+    WHERE e2.DepartmentID <> e.DepartmentID
+);
