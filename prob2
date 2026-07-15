@@ -302,3 +302,11 @@ WHERE Salary = ANY
     FROM Employee
     WHERE DepartmentID = 1
 );
+SELECT *
+FROM Employee
+WHERE DepartmentID =
+(
+    SELECT DepartmentID
+    FROM Employee
+    WHERE Name = 'John'
+);
