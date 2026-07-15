@@ -292,3 +292,13 @@ WHERE Salary > ALL
     FROM Employee
     WHERE DepartmentID = 2
 );
+SELECT EmployeeID,
+       Name,
+       Salary
+FROM Employee
+WHERE Salary = ANY
+(
+    SELECT Salary
+    FROM Employee
+    WHERE DepartmentID = 1
+);
