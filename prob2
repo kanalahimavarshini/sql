@@ -310,3 +310,10 @@ WHERE DepartmentID =
     FROM Employee
     WHERE Name = 'John'
 );
+SELECT AVG(Salary) AS AverageSalary
+FROM Employee
+WHERE Salary <
+(
+    SELECT MAX(Salary)
+    FROM Employee
+);
