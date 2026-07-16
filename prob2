@@ -412,3 +412,9 @@ FROM Employee
 WHERE ManagerID IS NOT NULL
 GROUP BY ManagerID
 HAVING COUNT(*) > 1;
+SELECT ManagerID,
+       COUNT(*) AS TeamSize
+FROM Employee
+WHERE ManagerID IS NOT NULL
+GROUP BY ManagerID
+HAVING COUNT(*) > 5;
