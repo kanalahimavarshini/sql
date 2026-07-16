@@ -442,3 +442,8 @@ SELECT DepartmentID,
        MAX(JoiningDate) AS LastJoiningDate
 FROM Employee
 GROUP BY DepartmentID;
+SELECT EmployeeID,
+       Name,
+       JoiningDate
+FROM Employee
+WHERE JoiningDate BETWEEN '2022-01-01' AND '2023-12-31';
