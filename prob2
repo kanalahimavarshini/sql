@@ -424,3 +424,8 @@ FROM Employee
 GROUP BY Salary
 ORDER BY Frequency DESC
 LIMIT 1;
+SELECT EmployeeID,
+       Name,
+       Salary
+FROM Employee
+WHERE Salary BETWEEN 50000 AND 100000;
