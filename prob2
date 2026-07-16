@@ -406,3 +406,9 @@ FROM (
     FROM Employee
 ) AS RankedEmployees
 WHERE RankNo = 2;
+SELECT ManagerID,
+       COUNT(*) AS EmployeeCount
+FROM Employee
+WHERE ManagerID IS NOT NULL
+GROUP BY ManagerID
+HAVING COUNT(*) > 1;
