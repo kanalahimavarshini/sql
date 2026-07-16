@@ -390,3 +390,19 @@ WHERE SalaryIncrease =
     SELECT MAX(SalaryIncrease)
     FROM SalaryChanges
 );
+SELECT EmployeeID,
+       Name,
+       DepartmentID,
+       Salary
+FROM (
+    SELECT EmployeeID,
+           Name,
+           DepartmentID,
+           Salary,
+           DENSE_RANK() OVER (
+               PARTITION BY DepartmentID
+               ORDER BY Salary DESC
+           ) AS RankNo
+    FROM Employee
+) AS RankedEmployees
+WHERE RankNo = 2;
