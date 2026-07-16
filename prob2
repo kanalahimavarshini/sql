@@ -455,3 +455,16 @@ WHERE OrderAmount > (
     SELECT AVG(OrderAmount)
     FROM Orders
 );
+SELECT ProductID,
+       ProductName,
+       Price
+FROM (
+    SELECT ProductID,
+           ProductName,
+           Price,
+           DENSE_RANK() OVER (
+               ORDER BY Price DESC
+           ) AS PriceRank
+    FROM Products
+) AS RankedProducts
+WHERE PriceRank = 2;
