@@ -447,3 +447,11 @@ SELECT EmployeeID,
        JoiningDate
 FROM Employee
 WHERE JoiningDate BETWEEN '2022-01-01' AND '2023-12-31';
+SELECT OrderID,
+       CustomerID,
+       OrderAmount
+FROM Orders
+WHERE OrderAmount > (
+    SELECT AVG(OrderAmount)
+    FROM Orders
+);
