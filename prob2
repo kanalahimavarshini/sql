@@ -418,3 +418,9 @@ FROM Employee
 WHERE ManagerID IS NOT NULL
 GROUP BY ManagerID
 HAVING COUNT(*) > 5;
+SELECT Salary,
+       COUNT(*) AS Frequency
+FROM Employee
+GROUP BY Salary
+ORDER BY Frequency DESC
+LIMIT 1;
