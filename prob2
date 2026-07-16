@@ -437,3 +437,8 @@ SELECT DepartmentID,
        ) AS Percentage
 FROM Employee
 GROUP BY DepartmentID;
+SELECT DepartmentID,
+       MIN(JoiningDate) AS FirstJoiningDate,
+       MAX(JoiningDate) AS LastJoiningDate
+FROM Employee
+GROUP BY DepartmentID;
