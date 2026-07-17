@@ -540,3 +540,22 @@ SELECT EmployeeID,
        Salary,
        MAX(Salary) OVER() - Salary AS Difference
 FROM Employee;
+SELECT ProductID,
+       ProductName,
+       CategoryID,
+       Revenue
+FROM (
+    SELECT ProductID,
+           ProductName,
+           CategoryID,
+           SUM(Quantity * UnitPrice) AS Revenue,
+           DENSE_RANK() OVER (
+               PARTITION BY CategoryID
+               ORDER BY SUM(Quantity * UnitPrice) DESC
+           ) AS RankNo
+    FROM OrderDetails
+    GROUP BY ProductID,
+             ProductName,
+             CategoryID
+) AS RankedProducts
+WHERE RankNo <= 2;
