@@ -559,3 +559,23 @@ FROM (
              CategoryID
 ) AS RankedProducts
 WHERE RankNo <= 2;
+WITH MonthlyRevenue AS (
+    SELECT
+        YEAR(OrderDate) AS OrderYear,
+        MONTH(OrderDate) AS OrderMonth,
+        SUM(OrderAmount) AS Revenue
+    FROM Orders
+    GROUP BY YEAR(OrderDate),
+             MONTH(OrderDate)
+)
+SELECT
+    OrderYear,
+    OrderMonth,
+    Revenue,
+    LAG(Revenue) OVER (
+        ORDER BY OrderYear, OrderMonth
+    ) AS PreviousRevenue,
+    Revenue - LAG(Revenue) OVER (
+        ORDER BY OrderYear, OrderMonth
+    ) AS RevenueGrowth
+FROM MonthlyRevenue;
