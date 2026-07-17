@@ -515,3 +515,8 @@ SELECT EmployeeID,
 FROM Employee
 WHERE LOWER(LEFT(Name, 1)) =
       LOWER(RIGHT(Name, 1));
+      SELECT ManagerID,
+       COUNT(*) AS TotalEmployees
+FROM Employee
+WHERE ManagerID IS NOT NULL
+GROUP BY ManagerID;
