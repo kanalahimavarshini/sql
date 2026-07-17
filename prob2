@@ -535,3 +535,8 @@ SELECT DISTINCT
            ORDER BY Salary DESC
        ) AS HighestPaidEmployee
 FROM Employee;
+SELECT EmployeeID,
+       Name,
+       Salary,
+       MAX(Salary) OVER() - Salary AS Difference
+FROM Employee;
