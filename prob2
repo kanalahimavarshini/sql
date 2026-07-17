@@ -579,3 +579,16 @@ SELECT
         ORDER BY OrderYear, OrderMonth
     ) AS RevenueGrowth
 FROM MonthlyRevenue;
+SELECT CustomerID
+FROM Orders
+WHERE ProductID IN (
+    SELECT ProductID
+    FROM Products
+    WHERE CategoryID = 1
+)
+GROUP BY CustomerID
+HAVING COUNT(DISTINCT ProductID) = (
+    SELECT COUNT(*)
+    FROM Products
+    WHERE CategoryID = 1
+);
