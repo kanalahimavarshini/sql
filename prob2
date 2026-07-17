@@ -592,3 +592,12 @@ HAVING COUNT(DISTINCT ProductID) = (
     FROM Products
     WHERE CategoryID = 1
 );
+SELECT Name,
+       DepartmentID,
+       Salary,
+       COUNT(*) AS DuplicateCount
+FROM Employee
+GROUP BY Name,
+         DepartmentID,
+         Salary
+HAVING COUNT(*) > 1;
