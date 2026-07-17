@@ -510,3 +510,8 @@ SELECT EmployeeID,
        Name
 FROM Employee
 WHERE LENGTH(Name) > 5;
+SELECT EmployeeID,
+       Name
+FROM Employee
+WHERE LOWER(LEFT(Name, 1)) =
+      LOWER(RIGHT(Name, 1));
