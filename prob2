@@ -480,3 +480,13 @@ FROM Orders
 GROUP BY YEAR(OrderDate), MONTH(OrderDate)
 ORDER BY TotalRevenue DESC
 LIMIT 1;
+SELECT EmployeeID,
+       Name,
+       DepartmentID,
+       Salary
+FROM Employee e
+WHERE Salary > (
+    SELECT AVG(Salary)
+    FROM Employee
+    WHERE DepartmentID = e.DepartmentID
+);
