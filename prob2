@@ -506,3 +506,7 @@ FROM (
     FROM Employee
 ) AS RankedEmployees
 WHERE RankNo = 3;
+SELECT EmployeeID,
+       Name
+FROM Employee
+WHERE LENGTH(Name) > 5;
