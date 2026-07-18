@@ -601,3 +601,19 @@ GROUP BY Name,
          DepartmentID,
          Salary
 HAVING COUNT(*) > 1;
+SELECT EmployeeID,
+       Name,
+       DepartmentID,
+       Salary
+FROM (
+    SELECT EmployeeID,
+           Name,
+           DepartmentID,
+           Salary,
+           ROW_NUMBER() OVER (
+               PARTITION BY DepartmentID
+               ORDER BY Salary DESC
+           ) AS rn
+    FROM Employee
+) t
+WHERE rn = 1;
