@@ -630,3 +630,10 @@ SELECT Name,
 FROM Employee
 GROUP BY Name
 HAVING COUNT(*) > 1;
+SELECT EmployeeID,
+       Name,
+       Salary,
+       Salary - LAG(Salary) OVER (
+           ORDER BY EmployeeID
+       ) AS SalaryDifference
+FROM Employee;
