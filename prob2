@@ -637,3 +637,11 @@ SELECT EmployeeID,
            ORDER BY EmployeeID
        ) AS SalaryDifference
 FROM Employee;
+SELECT *
+FROM Employee
+WHERE DepartmentID IN (
+    SELECT DepartmentID
+    FROM Employee
+    GROUP BY DepartmentID
+    HAVING COUNT(*) > 3
+);
