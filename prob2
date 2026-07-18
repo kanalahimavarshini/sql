@@ -645,3 +645,19 @@ WHERE DepartmentID IN (
     GROUP BY DepartmentID
     HAVING COUNT(*) > 3
 );
+SELECT OrderID,
+       CustomerID,
+       OrderDate,
+       OrderAmount
+FROM (
+    SELECT OrderID,
+           CustomerID,
+           OrderDate,
+           OrderAmount,
+           ROW_NUMBER() OVER (
+               PARTITION BY CustomerID
+               ORDER BY OrderDate DESC
+           ) AS rn
+    FROM Orders
+) t
+WHERE rn = 1;
