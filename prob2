@@ -669,3 +669,13 @@ SELECT CustomerID,
        MAX(OrderDate) AS LastOrderDate
 FROM Orders
 GROUP BY CustomerID;
+SELECT ProductID,
+       ProductName,
+       CategoryID,
+       Price
+FROM Products p
+WHERE Price > (
+    SELECT AVG(Price)
+    FROM Products
+    WHERE CategoryID = p.CategoryID
+);
