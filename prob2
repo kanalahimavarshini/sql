@@ -684,3 +684,11 @@ SELECT CustomerID,
 FROM Orders
 GROUP BY CustomerID
 ORDER BY TotalRevenue DESC;
+SELECT OrderID,
+       CustomerID,
+       OrderDate,
+       COUNT(*) OVER (
+           PARTITION BY CustomerID
+           ORDER BY OrderDate
+       ) AS RunningOrderCount
+FROM Orders;
