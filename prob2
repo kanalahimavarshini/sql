@@ -617,3 +617,11 @@ FROM (
     FROM Employee
 ) t
 WHERE rn = 1;
+SELECT e.EmployeeID,
+       e.Name AS EmployeeName,
+       e.Salary,
+       m.Name AS ManagerName
+FROM Employee e
+JOIN Employee m
+ON e.ManagerID = m.EmployeeID
+WHERE e.Salary = m.Salary;
