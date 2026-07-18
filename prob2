@@ -661,3 +661,7 @@ FROM (
     FROM Orders
 ) t
 WHERE rn = 1;
+SELECT CustomerID,
+       MIN(OrderDate) AS FirstOrderDate
+FROM Orders
+GROUP BY CustomerID;
