@@ -665,3 +665,7 @@ SELECT CustomerID,
        MIN(OrderDate) AS FirstOrderDate
 FROM Orders
 GROUP BY CustomerID;
+SELECT CustomerID,
+       MAX(OrderDate) AS LastOrderDate
+FROM Orders
+GROUP BY CustomerID;
