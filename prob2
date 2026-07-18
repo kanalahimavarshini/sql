@@ -692,3 +692,11 @@ SELECT OrderID,
            ORDER BY OrderDate
        ) AS RunningOrderCount
 FROM Orders;
+SELECT e.EmployeeID,
+       e.Name AS EmployeeName,
+       m.Name AS ManagerName,
+       YEAR(e.JoiningDate) AS JoiningYear
+FROM Employee e
+JOIN Employee m
+ON e.ManagerID = m.EmployeeID
+WHERE YEAR(e.JoiningDate) = YEAR(m.JoiningDate);
