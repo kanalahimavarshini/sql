@@ -679,3 +679,8 @@ WHERE Price > (
     FROM Products
     WHERE CategoryID = p.CategoryID
 );
+SELECT CustomerID,
+       SUM(OrderAmount) AS TotalRevenue
+FROM Orders
+GROUP BY CustomerID
+ORDER BY TotalRevenue DESC;
