@@ -84,3 +84,11 @@ SELECT ProductID,
 FROM OrderDetails
 GROUP BY ProductID
 HAVING SUM(Quantity * UnitPrice) > 100000;
+SELECT OrderID,
+       CustomerID,
+       OrderAmount,
+       LEAD(OrderAmount) OVER (
+           PARTITION BY CustomerID
+           ORDER BY OrderDate
+       ) - OrderAmount AS AmountDifference
+FROM Orders;
