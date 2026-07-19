@@ -36,3 +36,11 @@ SELECT EmployeeID,
        Salary
 FROM Employee
 WHERE Salary % 5000 = 0;
+SELECT
+    YEAR(JoiningDate) AS HireYear,
+    QUARTER(JoiningDate) AS HireQuarter,
+    COUNT(*) AS TotalEmployees
+FROM Employee
+GROUP BY YEAR(JoiningDate),
+         QUARTER(JoiningDate)
+ORDER BY HireYear, HireQuarter;
