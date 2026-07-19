@@ -44,3 +44,19 @@ FROM Employee
 GROUP BY YEAR(JoiningDate),
          QUARTER(JoiningDate)
 ORDER BY HireYear, HireQuarter;
+SELECT OrderID,
+       CustomerID,
+       OrderDate,
+       OrderAmount
+FROM (
+    SELECT OrderID,
+           CustomerID,
+           OrderDate,
+           OrderAmount,
+           ROW_NUMBER() OVER (
+               PARTITION BY CustomerID
+               ORDER BY OrderDate
+           ) AS rn
+    FROM Orders
+) t
+WHERE rn = 1;
