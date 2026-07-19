@@ -1,0 +1,13 @@
+SELECT EmployeeID,
+       Name,
+       Salary
+FROM (
+    SELECT EmployeeID,
+           Name,
+           Salary,
+           DENSE_RANK() OVER (
+               ORDER BY Salary DESC
+           ) AS SalaryRank
+    FROM Employee
+) t
+WHERE SalaryRank = 4;
