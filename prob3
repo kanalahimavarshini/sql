@@ -79,3 +79,8 @@ FROM (
     FROM Orders
 ) t
 WHERE rn = 1;
+SELECT ProductID,
+       SUM(Quantity * UnitPrice) AS TotalRevenue
+FROM OrderDetails
+GROUP BY ProductID
+HAVING SUM(Quantity * UnitPrice) > 100000;
