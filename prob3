@@ -31,3 +31,8 @@ FROM Employee
 WHERE ManagerID IS NOT NULL
 GROUP BY ManagerID
 HAVING AVG(Salary) > 80000;
+SELECT EmployeeID,
+       Name,
+       Salary
+FROM Employee
+WHERE Salary % 5000 = 0;
