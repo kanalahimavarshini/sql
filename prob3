@@ -25,3 +25,9 @@ SELECT ManagerID,
 FROM Employee
 WHERE ManagerID IS NOT NULL
 GROUP BY ManagerID;
+SELECT ManagerID,
+       AVG(Salary) AS AverageTeamSalary
+FROM Employee
+WHERE ManagerID IS NOT NULL
+GROUP BY ManagerID
+HAVING AVG(Salary) > 80000;
