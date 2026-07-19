@@ -11,3 +11,12 @@ FROM (
     FROM Employee
 ) t
 WHERE SalaryRank = 4;
+SELECT EmployeeID,
+       Name,
+       Salary
+FROM Employee
+WHERE Salary IN (
+    SELECT Salary
+    FROM Employee
+    WHERE DepartmentID = 3
+);
