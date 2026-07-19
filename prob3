@@ -20,3 +20,8 @@ WHERE Salary IN (
     FROM Employee
     WHERE DepartmentID = 3
 );
+SELECT ManagerID,
+       AVG(Salary) AS AverageTeamSalary
+FROM Employee
+WHERE ManagerID IS NOT NULL
+GROUP BY ManagerID;
