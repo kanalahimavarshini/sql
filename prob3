@@ -92,3 +92,10 @@ SELECT OrderID,
            ORDER BY OrderDate
        ) - OrderAmount AS AmountDifference
 FROM Orders;
+SELECT *
+FROM Employee e
+WHERE 1 = (
+    SELECT COUNT(*)
+    FROM Employee e2
+    WHERE e2.Email = e.Email
+);
