@@ -115,3 +115,11 @@ FROM Employee
 GROUP BY DepartmentID
 ORDER BY TotalEmployees DESC
 LIMIT 1;
+SELECT e.EmployeeID,
+       e.Name
+FROM Employee e
+WHERE e.EmployeeID NOT IN (
+    SELECT DISTINCT ManagerID
+    FROM Employee
+    WHERE ManagerID IS NOT NULL
+);
