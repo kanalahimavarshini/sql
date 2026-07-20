@@ -186,3 +186,13 @@ SELECT
     SUM(OrderAmount) AS TotalRevenue,
     AVG(OrderAmount) AS AverageOrderValue
 FROM Orders;
+SELECT EmployeeID,
+       Name,
+       Salary
+FROM Employee
+WHERE Salary IN (
+    SELECT DISTINCT Salary
+    FROM Employee
+    ORDER BY Salary DESC
+    LIMIT 3
+);
