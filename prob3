@@ -138,3 +138,16 @@ SELECT MONTH(JoiningDate) AS JoiningMonth,
 FROM Employee
 GROUP BY MONTH(JoiningDate)
 HAVING COUNT(*) > 1;
+WITH CustomerSpending AS (
+    SELECT CustomerID,
+           SUM(OrderAmount) AS TotalSpent
+    FROM Orders
+    GROUP BY CustomerID
+)
+SELECT CustomerID,
+       TotalSpent
+FROM CustomerSpending
+WHERE TotalSpent > (
+    SELECT AVG(TotalSpent)
+    FROM CustomerSpending
+);
