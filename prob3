@@ -155,3 +155,24 @@ SELECT CustomerID,
        MAX(OrderDate) AS LatestOrderDate
 FROM Orders
 GROUP BY CustomerID;
+SELECT ProductID,
+       ProductName,
+       CategoryID,
+       TotalQuantity
+FROM (
+    SELECT p.ProductID,
+           p.ProductName,
+           p.CategoryID,
+           SUM(od.Quantity) AS TotalQuantity,
+           DENSE_RANK() OVER (
+               PARTITION BY p.CategoryID
+               ORDER BY SUM(od.Quantity) DESC
+           ) AS rn
+    FROM Products p
+    JOIN OrderDetails od
+    ON p.ProductID = od.ProductID
+    GROUP BY p.ProductID,
+             p.ProductName,
+             p.CategoryID
+) t
+WHERE rn = 1;
