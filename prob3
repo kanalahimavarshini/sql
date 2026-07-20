@@ -99,3 +99,13 @@ WHERE 1 = (
     FROM Employee e2
     WHERE e2.Email = e.Email
 );
+SELECT e.EmployeeID,
+       e.Name,
+       e.Salary,
+       e.ManagerID
+FROM Employee e
+WHERE e.Salary > (
+    SELECT AVG(t.Salary)
+    FROM Employee t
+    WHERE t.ManagerID = e.ManagerID
+);
