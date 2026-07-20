@@ -123,3 +123,9 @@ WHERE e.EmployeeID NOT IN (
     FROM Employee
     WHERE ManagerID IS NOT NULL
 );
+SELECT e.EmployeeID,
+       e.Name
+FROM Employee e
+LEFT JOIN Employee sub
+ON e.EmployeeID = sub.ManagerID
+WHERE sub.EmployeeID IS NULL;
