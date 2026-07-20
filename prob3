@@ -151,3 +151,7 @@ WHERE TotalSpent > (
     SELECT AVG(TotalSpent)
     FROM CustomerSpending
 );
+SELECT CustomerID,
+       MAX(OrderDate) AS LatestOrderDate
+FROM Orders
+GROUP BY CustomerID;
