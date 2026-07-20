@@ -133,3 +133,8 @@ SELECT DepartmentID,
        MAX(Salary) - MIN(Salary) AS SalaryDifference
 FROM Employee
 GROUP BY DepartmentID;
+SELECT MONTH(JoiningDate) AS JoiningMonth,
+       COUNT(*) AS TotalEmployees
+FROM Employee
+GROUP BY MONTH(JoiningDate)
+HAVING COUNT(*) > 1;
