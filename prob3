@@ -182,3 +182,7 @@ SELECT OrderID,
        OrderAmount
 FROM Orders
 WHERE DAYOFWEEK(OrderDate) IN (1, 7);
+SELECT
+    SUM(OrderAmount) AS TotalRevenue,
+    AVG(OrderAmount) AS AverageOrderValue
+FROM Orders;
