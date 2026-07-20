@@ -129,3 +129,7 @@ FROM Employee e
 LEFT JOIN Employee sub
 ON e.EmployeeID = sub.ManagerID
 WHERE sub.EmployeeID IS NULL;
+SELECT DepartmentID,
+       MAX(Salary) - MIN(Salary) AS SalaryDifference
+FROM Employee
+GROUP BY DepartmentID;
