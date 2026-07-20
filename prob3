@@ -176,3 +176,9 @@ FROM (
              p.CategoryID
 ) t
 WHERE rn = 1;
+SELECT OrderID,
+       CustomerID,
+       OrderDate,
+       OrderAmount
+FROM Orders
+WHERE DAYOFWEEK(OrderDate) IN (1, 7);
