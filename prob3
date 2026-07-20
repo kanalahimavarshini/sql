@@ -109,3 +109,9 @@ WHERE e.Salary > (
     FROM Employee t
     WHERE t.ManagerID = e.ManagerID
 );
+SELECT DepartmentID,
+       COUNT(*) AS TotalEmployees
+FROM Employee
+GROUP BY DepartmentID
+ORDER BY TotalEmployees DESC
+LIMIT 1;
