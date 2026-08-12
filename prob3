@@ -372,3 +372,13 @@ SELECT
     MAX(streak_length) AS longest_streak
 FROM streaks
 GROUP BY customer_id;
+SELECT
+    e.employee_id,
+    e.employee_name,
+    e.salary AS employee_salary,
+    m.employee_name AS manager_name,
+    m.salary AS manager_salary
+FROM employees e
+JOIN employees m
+    ON e.manager_id = m.employee_id
+WHERE e.salary > m.salary;
