@@ -285,3 +285,32 @@ HAVING COUNT(DISTINCT o.product_id) = (
     SELECT COUNT(*)
     FROM products
 );
+WITH RECURSIVE employee_tree AS (
+
+    SELECT
+        employee_id,
+        employee_name,
+        manager_id,
+        0 AS level
+    FROM employees
+    WHERE manager_id IS NULL
+
+    UNION ALL
+
+    SELECT
+        e.employee_id,
+        e.employee_name,
+        e.manager_id,
+        et.level + 1
+    FROM employees e
+    JOIN employee_tree et
+        ON e.manager_id = et.employee_id
+)
+
+SELECT
+    employee_id,
+    employee_name,
+    manager_id,
+    level
+FROM employee_tree
+ORDER BY level, employee_id;
