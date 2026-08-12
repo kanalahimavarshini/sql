@@ -252,3 +252,23 @@ SELECT
     salary
 FROM ranked_employees
 WHERE rn <= 3;
+WITH numbered AS (
+    SELECT
+        user_id,
+        login_date,
+        login_date -
+        INTERVAL '1 day' *
+        ROW_NUMBER() OVER (
+            PARTITION BY user_id
+            ORDER BY login_date
+        ) AS grp
+    FROM user_logins
+)
+SELECT
+    user_id,
+    MIN(login_date) AS start_date,
+    MAX(login_date) AS end_date,
+    COUNT(*) AS consecutive_days
+FROM numbered
+GROUP BY user_id, grp
+HAVING COUNT(*) >= 3;
