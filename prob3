@@ -314,3 +314,30 @@ SELECT
     level
 FROM employee_tree
 ORDER BY level, employee_id;
+WITH monthly_sales AS (
+    SELECT
+        DATE_TRUNC('month', order_date) AS month,
+        SUM(amount) AS total_sales
+    FROM orders
+    GROUP BY DATE_TRUNC('month', order_date)
+),
+sales_with_previous AS (
+    SELECT
+        month,
+        total_sales,
+        LAG(total_sales) OVER (
+            ORDER BY month
+        ) AS previous_sales
+    FROM monthly_sales
+)
+SELECT
+    month,
+    total_sales,
+    previous_sales,
+    ROUND(
+        100.0 * (total_sales - previous_sales)
+        / NULLIF(previous_sales, 0),
+        2
+    ) AS growth_percentage
+FROM sales_with_previous
+ORDER BY month;
