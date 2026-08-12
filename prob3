@@ -272,3 +272,16 @@ SELECT
 FROM numbered
 GROUP BY user_id, grp
 HAVING COUNT(*) >= 3;
+SELECT
+    c.customer_id,
+    c.customer_name
+FROM customers c
+JOIN orders o
+    ON c.customer_id = o.customer_id
+GROUP BY
+    c.customer_id,
+    c.customer_name
+HAVING COUNT(DISTINCT o.product_id) = (
+    SELECT COUNT(*)
+    FROM products
+);
