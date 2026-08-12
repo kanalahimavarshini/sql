@@ -341,3 +341,34 @@ SELECT
     ) AS growth_percentage
 FROM sales_with_previous
 ORDER BY month;
+WITH order_dates AS (
+    SELECT DISTINCT
+        customer_id,
+        CAST(order_date AS DATE) AS order_date
+    FROM orders
+),
+numbered AS (
+    SELECT
+        customer_id,
+        order_date,
+        order_date -
+        INTERVAL '1 day' *
+        ROW_NUMBER() OVER (
+            PARTITION BY customer_id
+            ORDER BY order_date
+        ) AS grp
+    FROM order_dates
+),
+streaks AS (
+    SELECT
+        customer_id,
+        grp,
+        COUNT(*) AS streak_length
+    FROM numbered
+    GROUP BY customer_id, grp
+)
+SELECT
+    customer_id,
+    MAX(streak_length) AS longest_streak
+FROM streaks
+GROUP BY customer_id;
