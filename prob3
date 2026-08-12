@@ -382,3 +382,19 @@ FROM employees e
 JOIN employees m
     ON e.manager_id = m.employee_id
 WHERE e.salary > m.salary;
+WITH ranked_salary AS (
+    SELECT
+        employee_id,
+        employee_name,
+        salary,
+        DENSE_RANK() OVER (
+            ORDER BY salary DESC
+        ) AS salary_rank
+    FROM employees
+)
+SELECT
+    employee_id,
+    employee_name,
+    salary
+FROM ranked_salary
+WHERE salary_rank = 3;
