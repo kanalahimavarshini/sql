@@ -210,3 +210,12 @@ FROM (
     FROM employees
 ) t
 WHERE rnk = 2;
+SELECT
+    employee_id,
+    employee_name,
+    salary,
+    SUM(salary) OVER (
+        ORDER BY employee_id
+        ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+    ) AS running_total
+FROM employees;
