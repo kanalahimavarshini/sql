@@ -196,3 +196,17 @@ WHERE Salary IN (
     ORDER BY Salary DESC
     LIMIT 3
 );
+SELECT *
+FROM (
+    SELECT 
+        employee_id,
+        employee_name,
+        department_id,
+        salary,
+        DENSE_RANK() OVER (
+            PARTITION BY department_id 
+            ORDER BY salary DESC
+        ) AS rnk
+    FROM employees
+) t
+WHERE rnk = 2;
