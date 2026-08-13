@@ -500,3 +500,25 @@ SELECT
         2
     ) AS percentage_of_total
 FROM department_salary;
+SELECT
+    customer_id,
+    product_id,
+    COUNT(*) AS times_purchased
+FROM orders
+GROUP BY
+    customer_id,
+    product_id
+HAVING COUNT(*) > 1;
+SELECT
+    c.customer_name,
+    p.product_name,
+    COUNT(*) AS times_purchased
+FROM orders o
+JOIN customers c
+    ON o.customer_id = c.customer_id
+JOIN products p
+    ON o.product_id = p.product_id
+GROUP BY
+    c.customer_name,
+    p.product_name
+HAVING COUNT(*) > 1;
