@@ -522,3 +522,22 @@ GROUP BY
     c.customer_name,
     p.product_name
 HAVING COUNT(*) > 1;
+WITH salary_rank AS (
+    SELECT
+        employee_id,
+        employee_name,
+        department_id,
+        salary,
+        DENSE_RANK() OVER (
+            ORDER BY salary DESC
+        ) AS rnk
+    FROM employees
+)
+SELECT
+    employee_id,
+    employee_name,
+    department_id,
+    salary
+FROM salary_rank
+WHERE rnk <= 3
+ORDER BY salary DESC;
