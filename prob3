@@ -398,3 +398,17 @@ SELECT
     salary
 FROM ranked_salary
 WHERE salary_rank = 3;
+SELECT
+    employee_id,
+    employee_name,
+    department_id,
+    salary
+FROM (
+    SELECT
+        e.*,
+        MAX(salary) OVER (
+            PARTITION BY department_id
+        ) AS max_dept_salary
+    FROM employees e
+) t
+WHERE salary = max_dept_salary;
