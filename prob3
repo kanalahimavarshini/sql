@@ -451,3 +451,30 @@ LEFT JOIN orders o
     ON c.customer_id = o.customer_id
     AND o.order_date >= CURRENT_DATE - INTERVAL '90 days'
 WHERE o.order_id IS NULL;
+SELECT
+    product_id,
+    COUNT(*) AS purchase_count
+FROM order_items
+GROUP BY product_id
+ORDER BY purchase_count DESC
+FETCH FIRST 1 ROW ONLY;
+WITH product_counts AS (
+    SELECT
+        product_id,
+        COUNT(*) AS purchase_count
+    FROM order_items
+    GROUP BY product_id
+),
+ranked AS (
+    SELECT
+        *,
+        DENSE_RANK() OVER (
+            ORDER BY purchase_count DESC
+        ) AS rnk
+    FROM product_counts
+)
+SELECT
+    product_id,
+    purchase_count
+FROM ranked
+WHERE rnk = 1;
