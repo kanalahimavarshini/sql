@@ -443,3 +443,11 @@ FROM products p
 LEFT JOIN order_items oi
     ON p.product_id = oi.product_id
 WHERE oi.product_id IS NULL;
+SELECT
+    c.customer_id,
+    c.customer_name
+FROM customers c
+LEFT JOIN orders o
+    ON c.customer_id = o.customer_id
+    AND o.order_date >= CURRENT_DATE - INTERVAL '90 days'
+WHERE o.order_id IS NULL;
