@@ -412,3 +412,16 @@ FROM (
     FROM employees e
 ) t
 WHERE salary = max_dept_salary;
+SELECT
+    employee_id,
+    employee_name,
+    salary
+FROM (
+    SELECT
+        e.*,
+        PERCENT_RANK() OVER (
+            ORDER BY salary DESC
+        ) AS salary_percentile
+    FROM employees e
+) t
+WHERE salary_percentile <= 0.05;
