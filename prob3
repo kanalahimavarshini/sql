@@ -425,3 +425,14 @@ FROM (
     FROM employees e
 ) t
 WHERE salary_percentile <= 0.05;
+SELECT
+    employee_id,
+    employee_name,
+    salary,
+    LAG(salary) OVER (
+        ORDER BY employee_id
+    ) AS previous_salary,
+    salary - LAG(salary) OVER (
+        ORDER BY employee_id
+    ) AS salary_difference
+FROM employees;
